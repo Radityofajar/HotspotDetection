@@ -20,7 +20,7 @@ class Display(QMainWindow):
         self.pushButton_mode2.clicked.connect(self.mode_2)
         self.pushButton_openImage.clicked.connect(self.loadimage)
 
-        self.addToolBar(NavigationToolbar(self.widgetHistogram.canvas.self))
+        self.addToolBar(NavigationToolbar(self.widgetHistogram.canvas, self))
 
     def mode_1(self):
         pass
