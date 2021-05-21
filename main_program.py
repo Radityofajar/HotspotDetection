@@ -1,3 +1,5 @@
+#https://books.google.co.id/books?id=aDcfEAAAQBAJ&pg=PA176&lpg=PA176&dq=show+histogram+image+opencv+python+on+%22pyqt5%22&source=bl&ots=_1tB3E0KM3&sig=ACfU3U0trSyQhtNBP9j9fnFGS8qUQoNzkQ&hl=id&sa=X&ved=2ahUKEwiJ0ILGkdvwAhXbb30KHbMrDPYQ6AEwE3oECCAQAw#v=onepage&q=show%20histogram%20image%20opencv%20python%20on%20%22pyqt5%22&f=false
+#p176
 import cv2 as cv
 import numpy as np
 from PyQt5 import QtWidgets, QtGui, QtCore
@@ -44,12 +46,12 @@ class Display(QMainWindow):
 
     def display_histogram(self,image):
         self.widgetHistogram.canvas.axes1.clear()
-        read_img = cv.imread(image, cv.IMREAD_GRAYSCALE)
+        read_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
         histr = cv.calcHist([read_img], [0], None, [256], [0, 256])
-        self.widgetHistogram.canvas.axes1.plot(histr, color = 1 , linewidth=3.0)
+        self.widgetHistogram.canvas.axes1.plot(histr, color = "yellow" , linewidth=3.0)
         self.widgetHistogram.canvas.axes1.set_ylabel('Frequency', color = "white")
         self.widgetHistogram.canvas.axes1.set_xlabel("Intensity", color = 'white')
-        self.widgetHistogram.canvas.axes1.set_title('Histogram')
+        self.widgetHistogram.canvas.axes1.set_title('Histogram', color = 'white')
         self.widgetHistogram.canvas.axes1.set_facecolor('xkcd:black')
         self.widgetHistogram.canvas.axes1.grid()
         self.widgetHistogram.canvas.draw()
